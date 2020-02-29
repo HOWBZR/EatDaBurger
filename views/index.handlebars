@@ -1,0 +1,109 @@
+<div class='container'>
+    <ul class='eatcontainer'>
+        {{#each burgers}}
+        {{#unless devoured}}
+        <li>{{burger_name}}
+            <button class="eat" data-id={{id}}>EAT</button>
+        </li>
+        {{/unless}}
+
+        {{/each}}
+    </ul>
+    <ul class='container'>
+        {{#each burgers}}
+        {{#if devoured}}
+        <li>{{burger_name}}</li>
+
+        {{/if}}
+        {{/each}}
+    </ul>
+
+    <div class='container'>
+        <form id='form'>
+            <input type='text' class='form-control' name='Burger Name' id='newBurger'>
+            <button type='submit' class='btn btn-primary' id='submit'>Submit</button>
+        </form>
+    </div>
+</div>
+
+
+<script>
+
+
+
+
+    $(function () {
+
+
+        $(".eat").on("click", function (event) {
+            const id = $(this).data("id");
+            //const newSleep = $(this).data("newsleep");
+            const devoured = {
+                name: $('.id').val()
+            };
+            // Send the PUT request.
+            $.ajax("/api/burgers/" + id, {
+                type: "PUT",
+                data: devoured
+            }).then(
+                function () {
+                    //console.log("devoured", devoured);
+                    // Reload the page to get the updated list
+                    location.reload();
+                }
+            );
+        });
+
+
+
+        $("#submit").on("click", function (event) {
+            // Make sure to preventDefault on a submit event.
+            event.preventDefault();
+
+            const newBurger = {
+                name: $("#newBurger").val().trim(),
+                devoured: false
+            };
+
+            // Send the POST request.
+            $.ajax("/api/burgers", {
+                type: "POST",
+                data: newBurger
+            }).then(
+                function () {
+                    console.log("created new burger");
+                    // Reload the page to get the updated list
+                    location.reload();
+                }
+            );
+        });
+
+
+
+    });
+
+
+
+
+
+
+
+
+
+
+
+    $(".eat").on("click", function () {
+        let id = $(this).attr("data-id")
+        alert('Its working')
+        // ajax call with put to update the burger
+
+    })
+
+    $("#create").on("click", function () {
+        // get the name of the burger form the input form
+        // ajax call with post and the burgername to create the burger
+    })
+
+
+
+</script>

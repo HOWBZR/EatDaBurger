@@ -1,0 +1,18 @@
+.container{
+    display:flex;
+    justify-content: space-around;
+}
+.eatcontainer{
+    display: flex;
+    align-content: center;
+}
+
+#first{
+    display:flex;
+
+}
+
+.formconatiner{
+    display: flex;
+    align-items: baseline;
+}
