@@ -1,32 +1,38 @@
-<div class='container'>
-    <ul class='eatcontainer'>
-        {{#each burgers}}
-        {{#unless devoured}}
-        <li>{{burger_name}}
-            <button class="eat" data-id={{id}}>EAT</button>
-        </li>
-        {{/unless}}
+<div class='row'>
+    <div class='col-3 text-center'>
+        <h1>Chef inspired burgers.</h1>
+        <ul class='list-group'>
+            {{#each burgers}}
+            {{#unless devoured}}
+            <li class='list-group-item'>{{burger_name}}
+                <button class="eat" data-id={{id}}>EAT</button>
+            </li>
+            {{/unless}}
 
-        {{/each}}
-    </ul>
-    <ul class='container'>
-        {{#each burgers}}
-        {{#if devoured}}
-        <li>{{burger_name}}</li>
+            {{/each}}
+        </ul>
+    </div>
+    <div class='col-3 text-center'>
+        <h1>Look how many burgers you've eaten!</h1>
+        <ul class='list-group'>
+            {{#each burgers}}
+            {{#if devoured}}
+            <li class='list-group-item'>{{burger_name}}</li>
 
-        {{/if}}
-        {{/each}}
-    </ul>
-
-    <div class='container'>
+            {{/if}}
+            {{/each}}
+        </ul>
+    </div>
+</div>
+<div class='row'>
+    <div class='col-6 text-center'>
+        <h1>Make your burger!</h1>
         <form id='form'>
             <input type='text' class='form-control' name='Burger Name' id='newBurger'>
-            <button type='submit' class='btn btn-primary' id='submit'>Submit</button>
+            <button type='submit' class='btn btn-primary' id='submit'>Create</button>
         </form>
     </div>
 </div>
-
-
 <script>
 
 
