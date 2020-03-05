@@ -1,18 +1,4 @@
-.container{
-    display:flex;
-    justify-content: space-around;
-}
-.eatcontainer{
+.row{
     display: flex;
-    align-content: center;
-}
-
-#first{
-    display:flex;
-
-}
-
-.formconatiner{
-    display: flex;
-    align-items: baseline;
+    justify-content: space-evenly;
 }
